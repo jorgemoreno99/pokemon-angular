@@ -1,7 +1,11 @@
 <div  *ngIf="loaded; else loading">
+
+  <div class="search-div">
+    <app-search-bar (searchEmitter)="onSearch($event)"></app-search-bar>
+  </div>
   <div class="pokemons-container" >
 
-    <div *ngFor="let pokemon of pokemons">
+    <div *ngFor="let pokemon of filteredPokemons">
       <app-pokemon-simple-card [pokemon]="pokemon"> </app-pokemon-simple-card>
     </div>
 

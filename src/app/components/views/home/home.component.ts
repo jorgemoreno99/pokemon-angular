@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IPokemonDTO } from 'src/app/models/interfaces/pokemon.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { IPokemonListResponse } from 'src/app/models/interfaces/pokemon-list-response.interface';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
 
   pokemons: IPokemonDTO[] = []
+  filteredPokemons: IPokemonDTO[] = []
   offset: number = 0;
   limit: number = 35;
   totalCount!: number;
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
     this.loaded = false;
     this.pokemonService.getList(this.offset, this.limit).subscribe(response => {
       this.pokemons = response.results
+      this.filteredPokemons = this.pokemons
       this.totalCount = response.count;
       this.loaded = true;
     });
@@ -41,5 +43,16 @@ export class HomeComponent implements OnInit {
       this.offset = result;
       this.loadPokemonList();
     }
+  }
+
+  onSearch(value: string) {
+    if (value.trim() === '') {
+      this.filteredPokemons = this.pokemons;
+    } else {
+      this.filteredPokemons = this.pokemons.filter(pokemon =>
+        pokemon.name.toLowerCase().includes(value.toLowerCase())
+      );
+    }
+
   }
 }

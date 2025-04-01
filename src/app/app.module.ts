@@ -14,6 +14,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { PokemonSimpleCardComponent } from './components/pokemon-simple-card/pokemon-simple-card.component';
 import { LoadingSpinnerComponent } from './components/layout/loading-spinner/loading-spinner.component';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchBarComponent } from './components/views/home/search-bar/search-bar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,8 @@ import { LoadingSpinnerComponent } from './components/layout/loading-spinner/loa
     HomeComponent,
     DetailsComponent,
     PokemonSimpleCardComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,9 @@ import { LoadingSpinnerComponent } from './components/layout/loading-spinner/loa
     FormsModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,14 @@
+
+.search-div{
+  margin: 60px 20px;
+  width: 70%;
+}
+
 .pokemons-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
-  padding: 50px;
+  padding: 10px 80px;
   justify-items: center;
 }
 
