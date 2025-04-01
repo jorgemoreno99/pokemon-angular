@@ -2,7 +2,9 @@
 
 
   <div class="back-button">
-    <button></button>
+    <button mat-icon-button (click)="backButtonHandler()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
   </div>
 
   <section class="pokemon-details-card">
@@ -21,30 +23,30 @@
       <div class="column-right">
 
 
-          <div class="column-7">
-            <ul>
-              <li class="info-item">
-                <span><b>Height</b></span>
-                <span>{{pokemon.height}} m</span>
-              </li>
-              <li class="info-item">
-                <span><b>Weight</b></span>
-                <span>{{pokemon.weight}} kg</span>
-              </li>
+        <div class="column-7">
+          <ul>
+            <li class="info-item">
+              <span><b>Height</b></span>
+              <span>{{pokemon.height}} m</span>
+            </li>
+            <li class="info-item">
+              <span><b>Weight</b></span>
+              <span>{{pokemon.weight}} kg</span>
+            </li>
 
-              <li class="info-item">
-                <span><b>Types</b></span>
-                <span>{{getTypesStr(pokemon.types)}}</span>
-              </li>
+            <li class="info-item">
+              <span><b>Types</b></span>
+              <span>{{getTypesStr(pokemon.types)}}</span>
+            </li>
 
-              <li class="info-item">
-                <span><b>Abilities</b></span>
-                <span>{{getAbilitiesStr(pokemon.abilities)}}</span>
+            <li class="info-item">
+              <span><b>Abilities</b></span>
+              <span>{{getAbilitiesStr(pokemon.abilities)}}</span>
 
-              </li>
+            </li>
 
-            </ul>
-          </div>
+          </ul>
+        </div>
 
 
       </div>
@@ -54,4 +56,6 @@
 
 </div>
 
-<ng-template #loading>Loading...</ng-template>
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>

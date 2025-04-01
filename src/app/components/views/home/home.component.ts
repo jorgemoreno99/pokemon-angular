@@ -1,48 +1,45 @@
-import { imageBaseUrl } from './../../../../environments/environments.dev';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IPokemonDTO } from 'src/app/models/interfaces/pokemon.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { IPokemonListResponse } from 'src/app/models/interfaces/pokemon-list-response.interface';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   constructor(
-    private pokemonService : PokemonService,
-    private router: Router
-  ){}
+    private pokemonService: PokemonService,
+  ) { }
 
 
-  pokemons : IPokemonDTO[] = []
+  pokemons: IPokemonDTO[] = []
+  offset: number = 0;
+  limit: number = 35;
+  totalCount!: number;
+  loaded : boolean = false;
 
   ngOnInit(): void {
-   this.pokemonService.getList().subscribe({
-    next: (response:IPokemonListResponse)=>{
+    this.loadPokemonList()
+  }
+
+
+  loadPokemonList() {
+    this.loaded = false;
+    this.pokemonService.getList(this.offset, this.limit).subscribe(response => {
       this.pokemons = response.results
-      console.log(this.pokemons);
+      this.totalCount = response.count;
+      this.loaded = true;
+    });
+  }
 
-    },
-    error: (err)=>{
-      console.log("error ocurred");
+  moveOffset(direction: number) {
+    let result = this.offset + (this.limit * direction);
+    if (result >= 0 && result <= this.totalCount) {
+      this.offset = result;
+      this.loadPokemonList();
     }
-   });
   }
-
-
-  getImageURL(pokemon: IPokemonDTO){
-    let id = pokemon.url.split('pokemon/')[1].split('/')[0]
-    return imageBaseUrl + id + '.png'
-  }
-
-  onClickHandler(item: IPokemonDTO){
-    let id = item.url.split('pokemon/')[1].split('/')[0]
-    this.router.navigate(['details', id])
-  }
-
-
 }

@@ -12,13 +12,17 @@ import { HomeComponent } from './components/views/home/home.component';
 import { MatIconModule } from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import { PokemonSimpleCardComponent } from './components/pokemon-simple-card/pokemon-simple-card.component';
+import { LoadingSpinnerComponent } from './components/layout/loading-spinner/loading-spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    PokemonSimpleCardComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

@@ -14,8 +14,13 @@ export class PokemonService {
   item = '/pokemon'
 
 
-  public getList(){
-    return this.httpClient.get<IPokemonListResponse>(urlApi + this.item)
+  public getList(offset: number = 0, limit: number = 50) {
+    return this.httpClient.get<IPokemonListResponse>(`${urlApi}${this.item}`, {
+      params: {
+        offset: offset.toString(),
+        limit: limit.toString(),
+      }
+    });
   }
 
   public get(id: string){
