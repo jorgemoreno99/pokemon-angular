@@ -1,8 +1,10 @@
 
 <div>
+  <div *ngFor="let pokemon of pokemons" (click) = "onClickHandler(pokemon)">
+    <div class="d-flex">
 
-  <pre>
-    {{pokemons}}
-  </pre>
-
+      <span>{{pokemon.name}}</span>
+      <img src={{getImageURL(pokemon)}} alt={{pokemon.name}}>
+    </div>
+  </div>
 </div>

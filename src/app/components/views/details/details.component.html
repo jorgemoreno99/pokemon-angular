@@ -1,0 +1,57 @@
+<div class="main-container" *ngIf="loaded; else loading">
+
+
+  <div class="back-button">
+    <button></button>
+  </div>
+
+  <section class="pokemon-details-card">
+    <h1>{{pokemon.name | uppercase}}</h1>
+
+    <div class="info-columns">
+
+
+      <div class="column-left">
+
+        <div class="pokemon-img">
+          <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
+        </div>
+      </div>
+
+      <div class="column-right">
+
+
+          <div class="column-7">
+            <ul>
+              <li class="info-item">
+                <span><b>Height</b></span>
+                <span>{{pokemon.height}} m</span>
+              </li>
+              <li class="info-item">
+                <span><b>Weight</b></span>
+                <span>{{pokemon.weight}} kg</span>
+              </li>
+
+              <li class="info-item">
+                <span><b>Types</b></span>
+                <span>{{getTypesStr(pokemon.types)}}</span>
+              </li>
+
+              <li class="info-item">
+                <span><b>Abilities</b></span>
+                <span>{{getAbilitiesStr(pokemon.abilities)}}</span>
+
+              </li>
+
+            </ul>
+          </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
+<ng-template #loading>Loading...</ng-template>
