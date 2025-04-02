@@ -20,8 +20,6 @@ export class DetailsComponent implements OnInit {
   pokemon!: IPokemonResponse;
   loaded: boolean = false; //TODO replace async
 
-
-
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id')?? '';
