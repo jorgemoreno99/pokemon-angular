@@ -1,8 +1,10 @@
-
-
 <div class="main-container">
   <mat-form-field appearance="fill" class="search-bar">
     <input matInput [(ngModel)]="value" (input)="onSearch()" placeholder="Search by name">
     <mat-icon matSuffix>search</mat-icon>
+    <mat-icon matSuffix #tooltip="matTooltip" matTooltip="The search will be applied only to the displayed items"
+      matTooltipPosition="above">
+      info
+    </mat-icon>
   </mat-form-field>
 </div>

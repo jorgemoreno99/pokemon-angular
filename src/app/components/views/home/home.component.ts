@@ -17,10 +17,16 @@ export class HomeComponent implements OnInit {
 
   pokemons: IPokemonDTO[] = []
   filteredPokemons: IPokemonDTO[] = []
+
+  defaultOptions = [25,50,75,100,200,300]
+  limitOpions = this.defaultOptions
+  limit: number = this.defaultOptions[0];
   offset: number = 0;
-  limit: number = 35;
   totalCount!: number;
+
   loaded : boolean = false;
+
+
 
   ngOnInit(): void {
     this.loadPokemonList()
@@ -33,6 +39,7 @@ export class HomeComponent implements OnInit {
       this.pokemons = response.results
       this.filteredPokemons = this.pokemons
       this.totalCount = response.count;
+      this.limitOpions = this.defaultOptions.concat([this.totalCount])
       this.loaded = true;
     });
   }

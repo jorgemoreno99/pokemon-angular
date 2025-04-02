@@ -1,9 +1,18 @@
 
-.search-div{
-  margin: 60px 20px;
-  width: 70%;
-}
+.params-row{
 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  .search-div{
+    margin: 60px 20px;
+    width: 70%;
+  }
+
+
+}
 .pokemons-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

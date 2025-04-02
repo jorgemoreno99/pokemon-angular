@@ -15,8 +15,12 @@ import {MatButtonModule} from '@angular/material/button';
 import { PokemonSimpleCardComponent } from './components/pokemon-simple-card/pokemon-simple-card.component';
 import { LoadingSpinnerComponent } from './components/layout/loading-spinner/loading-spinner.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './components/views/home/search-bar/search-bar.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import { SearchBarComponent } from './components/views/home/search-bar/search-ba
     MatButtonModule,
     MatToolbarModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
