@@ -46,7 +46,7 @@ class RouterStub {
 
 
 
-fdescribe('DetailsComponent', () => {
+describe('DetailsComponent', () => {
   let component: DetailsComponent;
   let fixture: ComponentFixture<DetailsComponent>;
   let pokemonService: PokemonService;
