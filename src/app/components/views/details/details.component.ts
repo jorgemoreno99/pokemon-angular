@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IAbilityDTO, IPokemonResponse, ITypeDTO } from 'src/app/models/interfaces/pokemon-response.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-details',
@@ -16,6 +17,7 @@ export class DetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  id!: string;
   pokemon!: IPokemonResponse;
   loaded: boolean = false; //TODO replace async
 
@@ -23,23 +25,30 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      let id = params.get('id');
-      if(!id) this.router.navigate(['']) //TODO ERROR
-      else this.pokemonService.get(id).subscribe({
-        next: (response: IPokemonResponse) => {
-          this.pokemon = response
-          this.loaded = true;
-          console.log(this.pokemon);
-
-        },
-        error: (err) => {
-          console.log("error ocurred");
-        }
-      });
-
+      this.id = params.get('id')?? '';
+      this.loadInfo()
     });
 
 
+  }
+
+  loadInfo(){
+    if(!this.id){
+      this.router.navigate([''])
+    }
+    this.loaded = false;
+
+    this.pokemonService.get(this.id).subscribe({
+      next: (response: IPokemonResponse) => {
+        this.pokemon = response
+        this.loaded = true;
+        console.log(this.pokemon);
+
+      },
+      error: (err) => {
+        console.log("error ocurred");
+      }
+    });
   }
 
   getTypesStr(types: ITypeDTO[]){
@@ -56,6 +65,11 @@ export class DetailsComponent implements OnInit {
 
   backButtonHandler(){
     this.router.navigate([''])
+  }
+
+  movePokemon(index: number){
+    this.id = (Number(this.id) + index).toString();
+    this.loadInfo()
   }
 
 

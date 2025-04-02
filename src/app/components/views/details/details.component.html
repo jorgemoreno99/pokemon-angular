@@ -8,7 +8,15 @@
   </div>
 
   <section class="pokemon-details-card">
-    <h1>{{pokemon.name | uppercase}}</h1>
+    <div class="title-row">
+      <button mat-icon-button (click)="movePokemon(-1)" appMyhover>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h1>{{pokemon.name | uppercase}} </h1>
+      <button mat-icon-button (click)="movePokemon(1)" appMyhover>
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
 
     <div class="info-columns">
 
@@ -35,7 +43,7 @@
       <div class="column-right">
 
 
-        <div class="column-7">
+        <div>
           <ul>
             <li class="info-item">
               <span><b>Height</b></span>
