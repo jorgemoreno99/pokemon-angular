@@ -10,7 +10,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1080px) {
   .params-row {
     flex-direction: row;
     justify-content: space-between;
@@ -25,9 +25,10 @@
 .pokemons-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 40px;
+  gap: 70px;
   padding: 10px 80px;
   justify-items: center;
+
 }
 
 .offset-buttons {
