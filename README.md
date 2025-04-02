@@ -7,27 +7,36 @@ This is an Angular application that allows users to explore Pokémon data throug
 ## Instalation
 
 The structure was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
-
+### Prerequisites
 Ensure you have the following installed on your system:
 
 Node.js (LTS version recommended)
-
 Angular CLI
 
-Clone the Repository
-git clone https://github.com/your-username/pokemon-angular-app.git
-cd pokemon-angular-app
+### Clone the Repository
+```sh
+git clone https://github.com/yourusername/pokemon-angular.git
+cd pokemon-angular
+```
 
-Install Dependencies
+### Install Dependencies
+```sh
 npm install
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Run the Application
+```sh
+ng serve
+```
 
+### 🧪 Running Tests
+Run unit tests:
+```sh
+ng test
+```
+**Some tests have been omitted to speed up development as they were considered unnecessary or repetitive.**
+Main Components and services have been tested
 
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Observations
 
