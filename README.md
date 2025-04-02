@@ -1,27 +1,34 @@
 # PokemonAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+This project has been created by Jorge Moreno Peralta for a technical selection proccess.
 
-## Development server
+This is an Angular application that allows users to explore Pokémon data through a user-friendly interface. The app retrieves Pokémon details from an external API and displays them with filtering and pagination features.
+
+## Instalation
+
+The structure was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+
+Ensure you have the following installed on your system:
+
+Node.js (LTS version recommended)
+
+Angular CLI
+
+Clone the Repository
+git clone https://github.com/your-username/pokemon-angular-app.git
+cd pokemon-angular-app
+
+Install Dependencies
+npm install
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Observations
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Due to the unusual design of the REST API, we have opted to generalize the endpoint used to load images from the HOME component. The alternative option would be very unefficient since it would require making an HTTP call to the specific endpoint for each Pokémon shown in the list in order to retrieve the images. Therefore, this more efficient option was chosen.
