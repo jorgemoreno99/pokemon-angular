@@ -3,7 +3,7 @@
 export interface IPokemonResponse{
   id: number,
   name: string,
-  sprites: {front_default: string, front_shiny: string, front_female: string },
+  sprites: {front_default: string, front_shiny: string, front_female: string | null },
   types: ITypeDTO[],
   abilities: IAbilityDTO[],
   stats: IStatDTO[],
