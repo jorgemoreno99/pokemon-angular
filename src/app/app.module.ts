@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/views/details/details.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +22,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { MyhoverDirective } from './directives/myhover.directive';
 import {MatTabsModule} from '@angular/material/tabs';
 import { StatsChartComponent } from './components/views/details/stats-chart/stats-chart.component';
+import { MyErrorInterceptor } from './interceptors/myError.interceptor';
 
 
 @NgModule({
@@ -52,7 +53,13 @@ import { StatsChartComponent } from './components/views/details/stats-chart/stat
     MatTooltipModule,
     MatTabsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

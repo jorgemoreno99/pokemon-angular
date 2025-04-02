@@ -41,11 +41,6 @@ export class DetailsComponent implements OnInit {
       next: (response: IPokemonResponse) => {
         this.pokemon = response
         this.loaded = true;
-        console.log(this.pokemon);
-
-      },
-      error: (err) => {
-        console.log("error ocurred");
       }
     });
   }
