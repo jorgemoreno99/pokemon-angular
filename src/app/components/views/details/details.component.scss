@@ -1,3 +1,10 @@
+.back-button{
+  padding: 18px;
+  mat-icon{
+    transform: scale(1.2);
+  }
+}
+
 .pokemon-details-card {
   background: white;
   background-size: 100% 1px;

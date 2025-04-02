@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './components/views/home/search-bar/search-bar.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MyhoverDirective } from './directives/myhover.directive';
 
 
 
@@ -31,7 +32,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DetailsComponent,
     PokemonSimpleCardComponent,
     LoadingSpinnerComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    MyhoverDirective
   ],
   imports: [
     BrowserModule,
