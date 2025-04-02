@@ -1,22 +1,31 @@
 
-.params-row{
-
+.params-row {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 0 5%;
-  .search-div{
-    margin: 60px 20px;
-    width: 70%;
+  align-items: center;
+
+  .search-div {
+    margin: 30px;
   }
-
-
 }
+
+@media (min-width: 1024px) {
+  .params-row {
+    flex-direction: row;
+    justify-content: space-between;
+    .search-div {
+      margin: 60px 20px;
+      width: 70%;
+    }
+  }
+}
+
+
 .pokemons-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
+  gap: 40px;
   padding: 10px 80px;
   justify-items: center;
 }
