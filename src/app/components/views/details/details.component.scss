@@ -38,19 +38,16 @@
     }
   }
 
-  .info-columns {
+  .info-cont {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
   }
-
-
   .column-left {
     background-color: #F2F2F2;
     border-radius: 5px;
     position: relative;
-    width: 30%;
   }
 
   .pokemon-img {
@@ -75,6 +72,18 @@
       flex-direction: column;
       margin: 15px 5px;
 
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .info-cont {
+      flex-direction: row;
+    }
+    .column-left {
+      background-color: #F2F2F2;
+      border-radius: 5px;
+      position: relative;
+      width: 30%;
     }
   }
 

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IAbilityDTO, IPokemonResponse, ITypeDTO } from 'src/app/models/interfaces/pokemon-response.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-details',
