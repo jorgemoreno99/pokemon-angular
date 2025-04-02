@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IPokemonResponse } from 'src/app/models/interfaces/pokemon-response.interface';
+import { IAbilityDTO, IPokemonResponse, ITypeDTO } from 'src/app/models/interfaces/pokemon-response.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -42,11 +42,11 @@ export class DetailsComponent implements OnInit {
 
   }
 
-  getTypesStr(types: any[]){
+  getTypesStr(types: ITypeDTO[]){
     return types.map(type => this.capitalizeFirstLetter(type.type.name)).join(' ');
   }
 
-  getAbilitiesStr(abilities: any[]){
+  getAbilitiesStr(abilities: IAbilityDTO[]){
     return abilities.map(a => this.capitalizeFirstLetter(a.ability.name)).join(' ');
   }
 
