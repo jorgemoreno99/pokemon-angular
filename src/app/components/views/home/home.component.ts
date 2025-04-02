@@ -46,10 +46,14 @@ export class HomeComponent implements OnInit {
 
   moveOffset(direction: number) {
     let result = this.offset + (this.limit * direction);
-    if (result >= 0 && result <= this.totalCount) {
-      this.offset = result;
-      this.loadPokemonList();
-    }
+
+    if (result < 0 ) result = 0;
+    else if (result > this.totalCount - this.limit) result =  this.totalCount - this.limit
+
+    this.offset = result;
+
+    this.loadPokemonList();
+
   }
 
   onSearch(value: string) {

@@ -25,8 +25,8 @@
 
 
   <div class="offset-buttons">
-    <button mat-button (click)="moveOffset(-1)" [disabled]="offset < limit">Back</button>
-    <button mat-button (click)="moveOffset(1)" [disabled]="offset > totalCount - limit">Next</button>
+    <button mat-button (click)="moveOffset(-1)" [disabled]="offset <= 0">Back</button>
+    <button mat-button (click)="moveOffset(1)" [disabled]=" offset + limit >= totalCount">Next</button>
   </div>
 
 </div>
