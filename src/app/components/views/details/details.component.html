@@ -14,10 +14,22 @@
 
 
       <div class="column-left">
-
         <div class="pokemon-img">
-          <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
+
+          <mat-tab-group>
+            <mat-tab label="Default">
+              <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
+            </mat-tab>
+            <mat-tab label="Female" *ngIf="pokemon.sprites.front_female">
+              <img src="{{pokemon.sprites.front_female}}" alt="{{pokemon.name}}">
+            </mat-tab>
+            <mat-tab label="Shinny">
+              <img src="{{pokemon.sprites.front_shiny}}" alt="{{pokemon.name}}">
+            </mat-tab>
+          </mat-tab-group>
         </div>
+
+
       </div>
 
       <div class="column-right">
@@ -50,6 +62,9 @@
 
 
       </div>
+    </div>
+    <div class="stats">
+      <app-stats-chart [stats]="pokemon.stats"></app-stats-chart>
     </div>
   </section>
 

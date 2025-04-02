@@ -20,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './components/views/home/search-bar/search-bar.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MyhoverDirective } from './directives/myhover.directive';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import { StatsChartComponent } from './components/views/details/stats-chart/stats-chart.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MyhoverDirective } from './directives/myhover.directive';
     PokemonSimpleCardComponent,
     LoadingSpinnerComponent,
     SearchBarComponent,
-    MyhoverDirective
+    MyhoverDirective,
+    StatsChartComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { MyhoverDirective } from './directives/myhover.directive';
     MatInputModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
