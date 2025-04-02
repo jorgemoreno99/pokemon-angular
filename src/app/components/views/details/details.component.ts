@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IAbilityDTO, IPokemonResponse, ITypeDTO } from 'src/app/models/interfaces/pokemon-response.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { POKEMON_TYPE_COLORS } from 'src/assets/pokemon-types-colors';
 
 @Component({
   selector: 'app-details',
@@ -18,7 +19,7 @@ export class DetailsComponent implements OnInit {
 
   id!: string;
   pokemon!: IPokemonResponse;
-  loaded: boolean = false; //TODO replace async
+  loaded: boolean = false;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -43,9 +44,7 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  getTypesStr(types: ITypeDTO[]){
-    return types.map(type => this.capitalizeFirstLetter(type.type.name)).join(' ');
-  }
+
 
   getAbilitiesStr(abilities: IAbilityDTO[]){
     return abilities.map(a => this.capitalizeFirstLetter(a.ability.name)).join(' ');
@@ -64,7 +63,9 @@ export class DetailsComponent implements OnInit {
     this.loadInfo()
   }
 
-
+  getTypeColor(type: string){
+    return POKEMON_TYPE_COLORS[type.toLowerCase()] || 'lightgray';
+  }
 
 
 }

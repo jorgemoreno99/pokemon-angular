@@ -54,7 +54,11 @@
 
             <li class="info-item">
               <span><b>Types</b></span>
-              <span>{{getTypesStr(pokemon.types)}}</span>
+              <div class="types">
+                <span *ngFor="let t of pokemon.types" class="type-label" [style.background-color] = getTypeColor(t.type.name)>
+                  {{capitalizeFirstLetter(t.type.name)}}
+                </span>
+              </div>
             </li>
 
             <li class="info-item">
